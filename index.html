@@ -1,1 +1,89 @@
+<html lang="pt-BR">
+  <head>
+    <link rel="stylesheet" href="style.css"/>
+    <title>1B Flix</title>
+  </head>
+ 
+  <body>
+    <section>
+      <div class= ¨texto¨/
+        <header>1BFLIX</header>
+        <h1>A PARTIDA MAIS ASSUSTADORA DO ANO!!!</h1>
+      </div>
+     
+      <div>
+        <p>#xadrez</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/M9BdCqhlFCQ?si=GTf1QVSJ7CE-oy0x&quot; title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowf7ullscreen></iframe>
+      </div>
+    </section>
+  </body>
+</html>
 
+Adicionar comentário para a turma...
+
+
+Postada por GUSTAVO HENRIQUE CZAIKOSKI
+GUSTAVO HENRIQUE CZAIKOSKI
+Criado em: 8 de jul.8 de jul. (editado: 8 de jul.)
+https://editor.p5js.org/gustavo.czaikoski/sketches/7c6qeg7sC
+
+let campoIdade;
+let campoFantasia;
+let campoAventura;
+
+function setup() {
+  createCanvas(500, 300);
+  createElement("h2", "Recomendador de filmes");
+  createSpan("Sua idade: ");
+  campoIdade = createInput("9");
+  campoFantasia = createCheckbox("Gosta de fantasia?");
+  campoAventura = createCheckbox("Gosta de aventura?");
+}
+
+function draw() {
+  background("rgb(34,241,15)");
+  let idade = campoIdade.value();
+  let gostaFantasia = campoFantasia.checked();
+  let gostaAventura = campoAventura.checked();
+ 
+  let recomendacao = recomendaFilme(idade, gostaFantasia, gostaAventura);
+ 
+  fill("black");
+  textAlign(CENTER, CENTER);
+  textSize(15);
+  text(recomendacao, width/2, height/2);
+}
+
+
+function recomendaFilme(idade, gostaFantasia, gostaAventura) {
+ 
+  if(idade >= 12) {
+    if(gostaFantasia) {
+      if(gostaAventura) {
+         return "Filme idade >= 12, gosta de Fantasia e gosta de Aventura";
+      } else {
+         return "Filme idade >= 12, gosta de Fantasia e não gosta de Aventura";
+      }
+    } else {
+      if(gostaAventura) {
+         return "Filme idade >= 12, não gosta de Fantasia e gosta de Aventura";
+      } else {
+         return "Filme idade >= 12, não gosta de Fantasia e não gosta de Aventura";
+      }
+    }
+  } else {
+      if(gostaFantasia) {
+        if(gostaAventura) {
+          return "Filme idade < 12, gosta de Fantasia e gosta de Aventura";
+        } else {
+          return "Filme idade < 12, gosta de Fantasia e não gosta de Aventura";
+        }
+      } else {
+        if(gostaAventura) {
+          return "Filme idade < 12, não gosta de Fantasia e gosta de Aventura";
+      } else {
+          return "Filme idade < 12, não gosta de Fantasia e não gosta de Aventura";
+      }
+    }
+  }
+}
